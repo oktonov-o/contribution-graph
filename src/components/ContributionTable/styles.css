@@ -1,4 +1,4 @@
-.table {
+.chart {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(51, 15px);

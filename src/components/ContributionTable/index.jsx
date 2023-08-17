@@ -13,9 +13,13 @@ function ContributionTable() {
     .then(data => {
       const startDay = moment().startOf('week').subtract(50, 'weeks')
       const arr = []
-      for (let d = 0; d < 357; d++){
-        let day = startDay.add(1, 'days').format('YYYY-MM-DD')
-        arr.push({date: day, contribution: data[day] || 0})
+
+      for (let r=1; r<=7; r++){
+        let currentDay = moment(startDay).add(r, 'days');
+        for (let c=0; c<51; c++){
+          let day = currentDay.add(7, 'days').format('YYYY-MM-DD')
+          arr.push({date: day, contribution: data[day] || 0})
+        }
       }
       setContributions(arr)
     })
@@ -24,9 +28,12 @@ function ContributionTable() {
   return (
     <>
       <div className='table'>
-        {contributions.map(contribution => (
-          <Contribution contribution={contribution}/>
-        ))}
+
+        <div className='chart'>
+          {contributions.map(contribution => (
+            <Contribution contribution={contribution}/>
+          ))}
+        </div>
       </div>
     </>
   )

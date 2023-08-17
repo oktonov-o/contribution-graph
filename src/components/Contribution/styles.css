@@ -4,7 +4,7 @@
 }
 
 .cell:hover {
-    border: 1px solid black;
+    outline: 1px solid black;
 }
 
 .cell-color-level-1 {
