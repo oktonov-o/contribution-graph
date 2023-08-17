@@ -2,20 +2,19 @@ import './styles.css'
 import { useState } from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 
 function Contribution({ contribution }) {
   let level = 1;
-  if (contribution.contribution >= 1){
+  if (contribution.value >= 1){
     level = 2;
   }
-  if (contribution.contribution >= 10){
+  if (contribution.value >= 10){
     level = 3;
   }
-  if (contribution.contribution >= 20){
+  if (contribution.value >= 20){
     level = 4;
   }
-  if (contribution.contribution >= 30){
+  if (contribution.value >= 30){
     level = 5;
   }
 
@@ -34,7 +33,7 @@ function Contribution({ contribution }) {
 
   return (
     <>
-        <Button aria-describedby={id} variant="contained" onClick={handleClick} className={`cell cell-color-level-${level}`}/>
+        <div aria-describedby={id} onClick={handleClick} className={`cell cell-color-level-${level}`}></div>
         <Popover
           id={id}
           open={open}
@@ -49,7 +48,10 @@ function Contribution({ contribution }) {
             horizontal: 'center',
           }}
         >
-          <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+          <div className='info'>
+            <Typography sx={{ px: 1, pt: 1 }}>{contribution.value} contributions</Typography>
+            <Typography sx={{ px: 1, pb: 1 }}>{contribution.date}</Typography>
+          </div>
         </Popover>
     </>
   )

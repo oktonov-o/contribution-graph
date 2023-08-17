@@ -26,3 +26,9 @@
 .cell-color-level-5 {
     background-color: #254E77;
 }
+
+.info {
+    background-color: black;
+    color: white;
+    text-align: center;
+}

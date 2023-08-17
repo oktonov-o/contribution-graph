@@ -18,7 +18,7 @@ function ContributionTable() {
         let currentDay = moment(startDay).add(r, 'days');
         for (let c=0; c<51; c++){
           let day = currentDay.add(7, 'days').format('YYYY-MM-DD')
-          arr.push({date: day, contribution: data[day] || 0})
+          arr.push({date: day, value: data[day] || 0})
         }
       }
       setContributions(arr)
