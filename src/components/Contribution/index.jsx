@@ -50,7 +50,7 @@ function Contribution({ contribution }) {
         >
           <div className='info'>
             <Typography sx={{ px: 1, pt: 1 }}>{contribution.value} contributions</Typography>
-            <Typography sx={{ px: 1, pb: 1 }}>{contribution.date}</Typography>
+            <Typography sx={{ px: 1, pb: 1 }}>{contribution.date.format('dddd ll')}</Typography>
           </div>
         </Popover>
     </>
